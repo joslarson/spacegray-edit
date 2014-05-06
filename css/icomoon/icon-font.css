@@ -1,0 +1,68 @@
+@font-face {
+	font-family: 'spacegray';
+	src:url('fonts/spacegray.eot?-9qg2uf');
+	src:url('fonts/spacegray.eot?#iefix-9qg2uf') format('embedded-opentype'),
+		url('fonts/spacegray.woff?-9qg2uf') format('woff'),
+		url('fonts/spacegray.ttf?-9qg2uf') format('truetype'),
+		url('fonts/spacegray.svg?-9qg2uf#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+i {
+	font-family: 'spacegray';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	font-style: normal;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+i.wrap:before {
+	content: "\e600";
+}
+i.wholeword:before {
+	content: "\e601";
+}
+i.selection:before {
+	content: "\e602";
+}
+i.reverse:before {
+	content: "\e603";
+}
+i.regex:before {
+	content: "\e604";
+}
+i.lock:before {
+	content: "\e605";
+}
+i.highlight:before {
+	content: "\e606";
+}
+i.folder:before {
+	content: "\e608";
+}
+i.folder.open:before {
+	content: "\e607";
+}
+i.context:before {
+	content: "\e609";
+}
+i.close:before {
+	content: "\e60a";
+}
+i.circle:before {
+	content: "\e60b";
+}
+i.casesens:before {
+	content: "\e60c";
+}
+i.buffer:before {
+	content: "\e60d";
+}

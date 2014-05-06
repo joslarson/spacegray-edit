@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spacegray Edit</title>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/colpick.js"></script>
+	<script src="js/rivets.min.js"></script>
+	<script src="js/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/colpick.css" />
+	<link rel="stylesheet" type="text/css" href="css/icon-font.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style type="text/css">
+		[data-bg="A1"], [data-bgh="A1"]:hover { background: #{{ settings.colors.A1 | color }} } [data-bg="A2"], [data-bgh="A2"]:hover { background: #{{ settings.colors.A2 | color }} } [data-bg="A3"], [data-bgh="A3"]:hover { background: #{{ settings.colors.A3 | color }} } [data-bg="A4"], [data-bgh="A4"]:hover { background: #{{ settings.colors.A4 | color }} } [data-bg="A5"], [data-bgh="A5"]:hover { background: #{{ settings.colors.A5 | color }} } [data-bg="A6"], [data-bgh="A6"]:hover { background: #{{ settings.colors.A6 | color }} } [data-bg="B1"], [data-bgh="B1"]:hover { background: #{{ settings.colors.B1 | color }} } [data-bg="B2"], [data-bgh="B2"]:hover { background: #{{ settings.colors.B2 | color }} } [data-bg="B3"], [data-bgh="B3"]:hover { background: #{{ settings.colors.B3 | color }} } [data-bg="B4"], [data-bgh="B4"]:hover { background: #{{ settings.colors.B4 | color }} } [data-bg="C1"], [data-bgh="C1"]:hover { background: #{{ settings.colors.C1 | color }} } [data-bg="C2"], [data-bgh="C2"]:hover { background: #{{ settings.colors.C2 | color }} } [data-bg="C3"], [data-bgh="C3"]:hover { background: #{{ settings.colors.C3 | color }} } [data-bg="C4"], [data-bgh="C4"]:hover { background: #{{ settings.colors.C4 | color }} }
+		[data-tc="A1"], [data-tch="A1"]:hover { color:      #{{ settings.colors.A1 | color }} } [data-tc="A2"], [data-tch="A2"]:hover { color:      #{{ settings.colors.A2 | color }} } [data-tc="A3"], [data-tch="A3"]:hover { color:      #{{ settings.colors.A3 | color }} } [data-tc="A4"], [data-tch="A4"]:hover { color:      #{{ settings.colors.A4 | color }} } [data-tc="A5"], [data-tch="A5"]:hover { color:      #{{ settings.colors.A5 | color }} } [data-tc="A6"], [data-tch="A6"]:hover { color:      #{{ settings.colors.A6 | color }} } [data-tc="B1"], [data-tch="B1"]:hover { color:      #{{ settings.colors.B1 | color }} } [data-tc="B2"], [data-tch="B2"]:hover { color:      #{{ settings.colors.B2 | color }} } [data-tc="B3"], [data-tch="B3"]:hover { color:      #{{ settings.colors.B3 | color }} } [data-tc="B4"], [data-tch="B4"]:hover { color:      #{{ settings.colors.B4 | color }} } [data-tc="C1"], [data-tch="C1"]:hover { color:      #{{ settings.colors.C1 | color }} } [data-tc="C2"], [data-tch="C2"]:hover { color:      #{{ settings.colors.C2 | color }} } [data-tc="C3"], [data-tch="C3"]:hover { color:      #{{ settings.colors.C3 | color }} } [data-tc="C4"], [data-tch="C4"]:hover { color:      #{{ settings.colors.C4 | color }} }
+		/* Sidebare */
+		nav.sidebar li>span:hover i { color: #{{ settings.colors.B2 | color }} }
+		/* Editor */
+		#editor .colors ul li:after { background: #{{ settings.colors.A3 | color }}; }
+		#color_picker:before { background: {{ settings.colors.A3 | rgba 0 }}; color: {{ settings.colors.B3 | rgba 0 }}; }
+		#color_picker.inactive:before { background: {{ settings.colors.A3 | rgba .87 }}; color: {{ settings.colors.B3 | rgba .5 }}; }
+	</style>
+</head>
+<body data-bg="A3" class="clearfix">
+
+<!-- Sublime/Spacegray UI -->
+<section id="ui">
+	<!-- Sidebar Nav -->
+	<nav data-tc="A6" data-bg="A2" class="sidebar">
+		<h1 data-tc="A5">Folders</h1>
+		<ul>
+			<li><span data-tch="B2"><i data-tc="A5" class="folder open"></i>Project Folder</span>
+				<ul>
+					<li><span data-tch="B2"><i data-tc="A5" class="folder"></i>css</span></li>
+					<li><span data-tch="B2"><i data-tc="A5" class="folder"></i>img</span></li> 
+					<li><span data-tch="B2"><i data-tc="A5" class="folder open"></i>js</span>
+						<ul>
+							<li><span data-tch="B2">script.js</span></li>
+						</ul>
+					</li>
+					<li><span data-tch="B2">.gitignore</span></li>
+					<li data-bg="A4" data-tc="B3" class="active"><span>index.html</span></li>
+					<li><span data-tch="B2">LICENSE</span></li>
+					<li><span data-tch="B2">README.md</span></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<!-- Tabs Nav -->
+	<nav data-bg="A1" data-tc="A6" class="tabs">
+		<div data-tch="B3" class="tab"><span>.gitignore<i data-tch="C1" class="close"></i></span></div>
+		<div data-bg="A3" data-tc="B3" class="tab active"><span>index.html<i data-tch="C1" class="close"></i></span></div>
+		<div data-tch="B3" class="tab dirty"><span>README<i data-tc="C2" data-tch="C1" class="close"></i></span></div>
+	</nav>
+	<!-- Text Area -->
+	<section id="text"></section>
+	<!-- Footer -->
+	<footer data-bg="A1">
+		<!-- Search/Find -->
+		<section id="find">
+			<div class="left">
+				<i data-tc="B4" class="regex active"></i><i data-tc="A5" class="casesens"></i><i data-tc="A5" class="wholeword"></i>
+				<i data-tc="B4" class="wrap active"></i><i data-tc="A5" class="selection"></i><i data-tc="B4" class="highlight active"></i>
+				<input data-tc="B4"/>
+			</div>
+			<div class="right">
+				<button data-tc="C4">Find</button><button data-tc="C4">Find Prev</button><button data-tc="C4">Find All</button>
+			</div>
+		</section>
+		<section data-tc="A5" id="status_bar">
+			<span class="left-text">Line 1, Column 1<span id="inspect_data"></span></span>
+			<span class="tab-size">Tab Size: 4</span>
+			<span class="syntax">HTML</span>
+		</section>
+	</footer>
+</section>
+
+<!-- UI Editor -->
+<section id="editor">
+	<header>
+		<ul>
+			<li><a href="#browse">Browse</a></li>
+			<li class="active"><a href="#edit">Edit</a>
+				<ul>
+					<li><i class="colors"></i></li>
+					<li><i class="sizes"></i></li>
+				</ul>
+			</li>
+		</ul>
+	</header>
+	<section class="colors">
+		<div id="color_picker" class="inactive"></div>
+		<ul>
+			<li data-bg="A1"</li>
+			<li data-bg="A2"></li>
+			<li data-bg="A3"></li>
+			<li data-bg="A4"></li>
+			<li data-bg="A5"></li>
+			<li data-bg="A6"></li>
+			<li data-bg="B1"></li>
+			<li data-bg="B2"></li>
+			<li data-bg="B3"></li>
+			<li data-bg="B4"></li>
+			<li data-bg="C1"></li>
+			<li data-bg="C2"></li>
+			<li data-bg="C3"></li>
+			<li data-bg="C4"></li>
+		</ul>
+	</section>
+</section>
+</body>
+</html>
