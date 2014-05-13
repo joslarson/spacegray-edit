@@ -14,16 +14,22 @@ $C2: rgb(235, 203, 139); // Dirty tab
 $C3: rgb(254, 204, 102);
 $C4: rgb(150, 181, 180);
 
+html, body { height: 100%; overflow: hidden; }
+
 body {
 	font-family: helvetica, arial, sans-serif;
 	font-size: 11px;
 }
 
 section#ui {
-	-webkit-user-select: none; /* Chrome/Safari */        
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* IE10+ */
 	height: 100%;
+
+	* {
+		-webkit-user-select: none; /* Chrome/Safari */        
+		-moz-user-select: none; /* Firefox */
+		-ms-user-select: none; /* IE10+ */
+		cursor: default;
+	}
 
 	nav.sidebar {
 		padding: 10px 0px;
@@ -44,7 +50,6 @@ section#ui {
 		li {
 			line-height: 21px;
 			position: relative;
-			cursor: default;
 			
 			&>span { display: block; padding-left: 23px; }
 			& li>span { padding-left: 34px; }
@@ -68,7 +73,6 @@ section#ui {
 			min-width: 128px;
 			float: left;
 			position: relative;
-			cursor: default;
 			
 			& span {
 				display: block;
@@ -96,6 +100,7 @@ section#ui {
 		width: 100%;
 		box-sizing: border-box;
 		padding-right: 282px;
+		z-index: 5;
 		
 		#find {
 			position: relative;
@@ -114,6 +119,7 @@ section#ui {
 				font-size: 14px;
 				margin-left: 14px;
 				font-family: 'Source Code Pro';
+				cursor: text;
 			}
 			.right {
 				position: absolute;
@@ -147,6 +153,19 @@ section#ui {
 	}
 }
 
+.ace-wrapper {
+	box-sizing: border-box;
+	padding: 28px 282px 61px 0;
+	margin-left: 250px;
+	margin-top: -28px;
+	height: 100%;
+	display: none;
+}
+
+#ace {
+	height: 100%;
+}
+
 #editor {
 	width: 282px;
 	position: absolute;
@@ -154,6 +173,7 @@ section#ui {
 	height: 100%;
 	overflow-y: scroll;
 	padding-left: 30px;
+	z-index: 9;
 
 	header {
 		position: fixed;
@@ -180,6 +200,14 @@ section#ui {
 			}
 			&>li.active {
 				display: block;
+			}
+			&>li#edit>svg{
+				position: absolute;
+				top: 7px;
+				&#color { right: 40px; }
+				&#sizing { right: 15px; }
+				& path { fill: #aaaaaa; }
+				&.active path { fill: #3f3f3f; }
 			}
 		}
 	}

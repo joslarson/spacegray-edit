@@ -4,6 +4,7 @@
 	<title>Spacegray Edit</title>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/colpick.js"></script>
+	<script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/rivets.min.js"></script>
 	<script src="js/script.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -50,10 +51,17 @@
 	<nav data-bg="A1" data-tc="A6" class="tabs">
 		<div data-tch="B3" class="tab"><span>.gitignore<i data-tch="C1" class="close"></i></span></div>
 		<div data-bg="A3" data-tc="B3" class="tab active"><span>index.html<i data-tch="C1" class="close"></i></span></div>
-		<div data-tch="B3" class="tab dirty"><span>README<i data-tc="C2" data-tch="C1" class="close"></i></span></div>
+		<div data-tch="B3" class="tab dirty"><span>README.md<i data-tc="C2" data-tch="C1" class="close"></i></span></div>
 	</nav>
-	<!-- Text Area -->
-	<section id="text"></section>
+<!-- Ace Editor -->
+<section class="ace-wrapper">
+<div id="ace">
+function foo(items) {
+	var x = "All this is syntax highlighted";
+return x;
+}
+</div>
+</section>
 	<!-- Footer -->
 	<footer data-bg="A1">
 		<!-- Search/Find -->
@@ -61,7 +69,7 @@
 			<div class="left">
 				<i data-tc="B4" class="regex active"></i><i data-tc="A5" class="casesens"></i><i data-tc="A5" class="wholeword"></i>
 				<i data-tc="B4" class="wrap active"></i><i data-tc="A5" class="selection"></i><i data-tc="B4" class="highlight active"></i>
-				<input data-tc="B4"/>
+				<input data-tc="B4" value="</?(span)" />
 			</div>
 			<div class="right">
 				<button data-tc="C4">Find</button><button data-tc="C4">Find Prev</button><button data-tc="C4">Find All</button>
@@ -79,12 +87,11 @@
 <section id="editor">
 	<header>
 		<ul>
-			<li><a href="#browse">Browse</a></li>
-			<li class="active"><a href="#edit">Edit</a>
-				<ul>
-					<li><i class="colors"></i></li>
-					<li><i class="sizes"></i></li>
-				</ul>
+			<li id="browse"><a href="#browse">Browse</a></li>
+			<li id="edit" class="active">
+				<a href="#edit">Edit</a>
+				<svg id="color" class="icon active" x="0px" y="0px" width="27px" height="26px" viewBox="0 0 27 26" enable-background="new 0 0 27 26" xml:space="preserve"><g><path fill-rule="evenodd" clip-rule="evenodd" fill="#333333" d="M24.066,6.385c-1.247,1.512-4.67,5.688-7.388,9.007l-3.45-3.492 c3.122-2.769,6.986-6.192,8.382-7.418c2.485-2.182,4.663-3.481,5.136-2.95C27.042,1.826,26.255,3.731,24.066,6.385z M16.076,16.127 c-1.053,1.285-1.959,2.391-2.513,3.069l-4.086-3.969c0.662-0.588,1.765-1.566,3.043-2.699L16.076,16.127z M12.953,19.94v-0.012 C10.581,29,0.042,23.785,0.042,23.785s4.422,0.556,4.422-3.556c0-3.986,4.064-4.346,4.314-4.364l4.184,4.065 C12.961,19.93,12.953,19.94,12.953,19.94z"/></g></svg>
+				<svg id="sizing" class="icon" x="0px" y="0px" width="25px" height="26px" viewBox="0 0 25 26" enable-background="new 0 0 25 26" xml:space="preserve"><g><path fill-rule="evenodd" clip-rule="evenodd" fill="#333333" d="M4.98,25v-2.027h1.014V25h1.014v-2.027H8.02V25h0.951v-3.04h1.014 V25h1.013v-2.027h1.013V25h0.951v-2.027h1.014V25h1.013v-3.04h1.013V25h1.014v-2.027h0.951V25h1.014v-2.027h1.014V25h1.014v-3.04 h0.951V25H25V0L0,25H4.98z M21.008,9.586v11.36H9.649L21.008,9.586z"/></g></svg>
 			</li>
 		</ul>
 	</header>

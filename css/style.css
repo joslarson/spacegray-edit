@@ -1,15 +1,21 @@
+html, body {
+  height: 100%;
+  overflow: hidden; }
+
 body {
   font-family: helvetica, arial, sans-serif;
   font-size: 11px; }
 
 section#ui {
-  -webkit-user-select: none;
-  /* Chrome/Safari */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* IE10+ */
   height: 100%; }
+  section#ui * {
+    -webkit-user-select: none;
+    /* Chrome/Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+ */
+    cursor: default; }
   section#ui nav.sidebar {
     padding: 10px 0px;
     width: 250px;
@@ -26,8 +32,7 @@ section#ui {
       margin-left: 8px; }
     section#ui nav.sidebar li {
       line-height: 21px;
-      position: relative;
-      cursor: default; }
+      position: relative; }
       section#ui nav.sidebar li > span {
         display: block;
         padding-left: 23px; }
@@ -52,8 +57,7 @@ section#ui {
       padding: 2px 8px 0;
       min-width: 128px;
       float: left;
-      position: relative;
-      cursor: default; }
+      position: relative; }
       section#ui nav.tabs .tab span {
         display: block; }
       section#ui nav.tabs .tab i {
@@ -82,7 +86,8 @@ section#ui {
     left: 0;
     width: 100%;
     box-sizing: border-box;
-    padding-right: 282px; }
+    padding-right: 282px;
+    z-index: 5; }
     section#ui footer #find {
       position: relative;
       padding: 0 4px; }
@@ -97,7 +102,8 @@ section#ui {
         outline: none;
         font-size: 14px;
         margin-left: 14px;
-        font-family: 'Source Code Pro'; }
+        font-family: 'Source Code Pro';
+        cursor: text; }
       section#ui footer #find .right {
         position: absolute;
         right: 6px;
@@ -119,6 +125,17 @@ section#ui {
       font-weight: bold;
       padding: 9px 15px; }
 
+.ace-wrapper {
+  box-sizing: border-box;
+  padding: 28px 282px 61px 0;
+  margin-left: 250px;
+  margin-top: -28px;
+  height: 100%;
+  display: none; }
+
+#ace {
+  height: 100%; }
+
 #editor {
   width: 282px;
   position: absolute;
@@ -126,7 +143,8 @@ section#ui {
   right: 0;
   height: 100%;
   overflow-y: scroll;
-  padding-left: 30px; }
+  padding-left: 30px;
+  z-index: 9; }
   #editor header {
     position: fixed;
     top: 0;
@@ -148,6 +166,17 @@ section#ui {
         padding-left: 11px; }
     #editor header > ul > li.active {
       display: block; }
+    #editor header > ul > li#edit > svg {
+      position: absolute;
+      top: 7px; }
+      #editor header > ul > li#edit > svg#color {
+        right: 40px; }
+      #editor header > ul > li#edit > svg#sizing {
+        right: 15px; }
+      #editor header > ul > li#edit > svg path {
+        fill: #aaaaaa; }
+      #editor header > ul > li#edit > svg.active path {
+        fill: #3f3f3f; }
   #editor section.colors {
     height: 100%; }
     #editor section.colors ul {

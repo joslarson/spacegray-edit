@@ -20,6 +20,7 @@ var settings = {
 var inspectData = {};
 
 $(function(){
+
 	rivets.configure({
 		templateDelimiters: ['{{', '}}']
 	});
@@ -36,6 +37,18 @@ $(function(){
 	}
 	rivets.bind($('html'), {
 		settings: settings
+	});
+
+	var ace_editor = ace.edit("ace");
+	ace_editor.setTheme("ace/theme/ocean_dark");
+	ace_editor.getSession().setMode("ace/mode/javascript");
+	ace_editor.setShowPrintMargin(false);
+	ace_editor.setFadeFoldWidgets(true);
+	ace_editor.setOption("scrollPastEnd", true);
+	ace_editor.setDisplayIndentGuides(true);
+	ace_editor.setFontSize(14);
+	sleep(10, function(){
+		$(".ace-wrapper").fadeIn('slow');
 	});
 
 	var picker = $('#color_picker').colpick({
@@ -100,11 +113,15 @@ $(function(){
 	}
 	function getInspectString(){
 		result = "";
-		if(inspectData.bg  != undefined) result += ", background: " + inspectData.bg;
-		if(inspectData.bgh != undefined) result += ", background-hover: " + inspectData.bgh;
-		if(inspectData.tc  != undefined) result += ", text: " + inspectData.tc;
-		if(inspectData.tch != undefined) result += ", text-hover: " + inspectData.tch;
+		if(inspectData.bg  != undefined) result += ", Background: " + inspectData.bg;
+		if(inspectData.bgh != undefined) result += ", Background Hover: " + inspectData.bgh;
+		if(inspectData.tc  != undefined) result += ", Text: " + inspectData.tc;
+		if(inspectData.tch != undefined) result += ", Text Hover: " + inspectData.tch;
 		return result;
 	}
 
 });
+
+function sleep(millis, callback) {
+    setTimeout(function(){ callback(); }, millis);
+}
