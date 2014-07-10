@@ -1,11 +1,11 @@
 {
-  "name": "Spacegray Edit",
-  "description": "My first Chrome App.",
+  "name": "Sublime Theme Creator",
+  "description": "Sublime Text 3 Theme Editor",
   "version": "0.1",
   "app": {
     "background": {
       "scripts": ["js/background.js"]
     }
   },
-  "icons": { "16": "img/icon16.png", "48": "img/icon48.png", "128": "img/icon128.png" }
+  "icons": { "16": "img/png/icon16.png", "48": "img/png/icon48.png", "128": "img/png/icon128.png" }
 }
